@@ -23,7 +23,7 @@ int calculate_age(const char* birthdate) {
     int current_year = 2024, current_month = 10, current_day = 7; // 현재 날짜 하드코딩
 
     // 생년월일을 YYYY/MM/DD 형식으로 분리하여 저장
-    sscanf(birthdate, "%d/%d/%d", &birth_year, &birth_month, &birth_day);
+    sscanf_s(birthdate, "%d/%d/%d", &birth_year, &birth_month, &birth_day);
 
     // 만 나이 계산
     int age = current_year - birth_year;
@@ -51,7 +51,7 @@ void input_candidate(Candidate* candidate, int index) {
     candidate->birthdate[strcspn(candidate->birthdate, "\n")] = '\0';  // 개행 문자 제거
 
     printf("3. 성별(여성이면 F 또는 남성이면 M): ");
-    scanf(" %c", &candidate->gender);
+    scanf_s(" %c", &candidate->gender, 1);  // 크기 1 추가
     getchar();  // 버퍼 정리
 
     printf("4. 메일 주소: ");
@@ -63,7 +63,7 @@ void input_candidate(Candidate* candidate, int index) {
     candidate->nationality[strcspn(candidate->nationality, "\n")] = '\0';  // 개행 문자 제거
 
     printf("6. BMI: ");
-    scanf("%f", &candidate->bmi);
+    scanf_s("%f", &candidate->bmi);
     getchar();  // 버퍼 정리
 
     printf("7. 주 스킬: ");
@@ -75,7 +75,7 @@ void input_candidate(Candidate* candidate, int index) {
     candidate->sub_skill[strcspn(candidate->sub_skill, "\n")] = '\0';  // 개행 문자 제거
 
     printf("9. 한국어 등급(TOPIK): ");
-    scanf("%d", &candidate->topik);
+    scanf_s("%d", &candidate->topik);
     getchar();  // 버퍼 정리
 
     printf("10. MBTI: ");
