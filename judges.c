@@ -20,10 +20,10 @@ int main() {
     printf("#       심사자 풀 데이터 입력       #\n");
     printf("####################################\n");
     printf("> 참여 프로젝트: ");
-    scanf("%s", project_name);
+    scanf_s("%s", project_name, (unsigned)_countof(project_name));
     
     printf("> 심사 풀 인원: ");
-    scanf("%d", &judge_count);
+    scanf_s("%d", &judge_count);
     
     if (judge_count > MAX_JUDGES) {
         printf("심사 풀 인원은 최대 %d명입니다.\n", MAX_JUDGES);
@@ -31,7 +31,7 @@ int main() {
     }
     
     printf("> 선발 멤버 수: ");
-    scanf("%d", &selected_members);
+    scanf_s("%d", &selected_members);
     
     printf("++++++++++++++++++++++++++++++++++++\n");
     printf("%d명의 심사자 정보 입력을 시작합니다.\n", judge_count);
@@ -45,7 +45,7 @@ int main() {
     printf("심사자 풀 입력이 끝났습니다.\n");
     printf("++++++++++++++++++++++++++++++++++++\n");
     printf("“심사자 풀을 확인할까요?” (Y/N): ");
-    scanf(" %c", &input_check);
+    scanf_s(" %c", &input_check, 1);
     
     if (input_check == 'Y') {
         // 심사자 정보 출력
